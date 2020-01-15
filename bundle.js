@@ -28954,41 +28954,54 @@ var App = function (_Component) {
                 'div',
                 { role: 'button', onClick: function onClick() {
                     _this2.toggleVideo(0);
-                  } },
-                _react2.default.createElement('i', { className: this.state.activeVideo === 0 ? 'active' : '' }),
+                  }, className: this.state.activeVideo === 0 ? 'active' : '' },
+                _react2.default.createElement('i', null),
                 'East Bound Heading Up'
               ),
               _react2.default.createElement(
                 'div',
                 { role: 'button', onClick: function onClick() {
                     _this2.toggleVideo(1);
-                  } },
-                _react2.default.createElement('i', { className: this.state.activeVideo === 1 ? 'active' : '' }),
+                  }, className: this.state.activeVideo === 1 ? 'active' : '' },
+                _react2.default.createElement('i', null),
                 'Top of the Bridge'
               ),
               _react2.default.createElement(
                 'div',
                 { role: 'button', onClick: function onClick() {
                     _this2.toggleVideo(2);
-                  } },
-                _react2.default.createElement('i', { className: this.state.activeVideo === 2 ? 'active' : '' }),
+                  }, className: this.state.activeVideo === 2 ? 'active' : '' },
+                _react2.default.createElement('i', null),
                 'West Bound Heading Up'
               ),
               _react2.default.createElement(
                 'div',
                 { role: 'button', onClick: function onClick() {
                     _this2.toggleVideo(3);
-                  } },
-                _react2.default.createElement('i', { className: this.state.activeVideo === 3 ? 'active' : '' }),
+                  }, className: this.state.activeVideo === 3 ? 'active' : '' },
+                _react2.default.createElement('i', null),
                 'View towards Clements Ferry'
+              )
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'status' },
+              _react2.default.createElement(
+                'div',
+                { className: 'warning' },
+                _react2.default.createElement(
+                  'div',
+                  null,
+                  '!'
+                )
+              ),
+              _react2.default.createElement(
+                'div',
+                null,
+                this.state.status
               )
             )
           )
-        ),
-        _react2.default.createElement(
-          'div',
-          { className: 'status' },
-          this.state.status
         ),
         _react2.default.createElement(
           'div',
