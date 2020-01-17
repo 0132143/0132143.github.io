@@ -20,27 +20,27 @@ a {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  padding: 20px;
+  padding: 20px 10px;
   min-height: 100vh;
   position: relative;
-  max-width: 800px;
-  padding: 20px; }
+  max-width: 800px; }
 
 .video-wrapper {
   border-bottom: 2px solid black;
   overflow: hidden;
-  width: 400px;
+  width: 350px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: flex-end;
-  height: 295px;
+  height: 272;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  position: relative; }
+  position: relative;
+  margin-bottom: 10px; }
 
 .video-section {
   position: relative;
@@ -53,36 +53,43 @@ a {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  margin-bottom: 10px; }
+  margin-bottom: 40px; }
 
 .timestamp {
   width: 100%;
   margin-bottom: 30px;
   margin-top: 10px; }
 
+.status-border {
+  width: 300px;
+  padding: 5px;
+  background: -o-repeating-linear-gradient(45deg, #ffd43b, #ffd43b 0.6em, black 0.6em, black 1.3em);
+  background: repeating-linear-gradient(45deg, #ffd43b, #ffd43b 0.6em, black 0.6em, black 1.3em);
+  margin: 20px;
+  margin-top: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: 1px solid black; }
+
 .status {
-  max-width: 300px;
+  background-color: white;
+  width: 100%;
   text-align: center;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin: 20px;
-  margin-top: 40px;
   border: 1px solid black;
   padding: 5px; }
 
 .warning {
-  width: 0;
-  height: 0;
-  position: relative;
-  border-right: 10px solid  transparent;
-  border-left: 10px solid  transparent;
-  border-bottom: 20px solid yellow; }
-  .warning > div {
-    position: absolute;
-    left: -1px;
-    top: 5px;
-    font-size: 10px; }
+  width: 14px; }
 
 .header {
   width: 100%;
@@ -122,7 +129,8 @@ a {
 
 .footer {
   position: absolute;
-  bottom: 10px; }
+  bottom: 10px;
+  text-align: center; }
 
 .video-links,
 .underline {

@@ -28812,8 +28812,8 @@ var App = function (_Component) {
         }],
         'autostart': true,
         'mute': true,
-        'width': 480,
-        'height': 320,
+        'width': 350,
+        'height': 272,
         'controls': false
       });
 
@@ -28843,7 +28843,7 @@ var App = function (_Component) {
         }],
         'autostart': true,
         'mute': true,
-        'width': 480,
+        'width': 350,
         'height': 330,
         'controls': false
       });
@@ -28936,8 +28936,7 @@ var App = function (_Component) {
           _react2.default.createElement(
             'div',
             { className: 'video-wrapper' },
-            _react2.default.createElement('div', { id: 'vidya' }),
-            _react2.default.createElement('div', { className: 'video-frame' })
+            _react2.default.createElement('div', { id: 'vidya' })
           ),
           _react2.default.createElement(
             'div',
@@ -28985,20 +28984,16 @@ var App = function (_Component) {
             ),
             _react2.default.createElement(
               'div',
-              { className: 'status' },
+              { className: 'status-border' },
               _react2.default.createElement(
                 'div',
-                { className: 'warning' },
+                { className: 'status' },
                 _react2.default.createElement(
                   'div',
                   null,
-                  '!'
+                  _react2.default.createElement('img', { alt: '!', className: 'warning', src: '/images/alert.png' }),
+                  this.state.status
                 )
-              ),
-              _react2.default.createElement(
-                'div',
-                null,
-                this.state.status
               )
             )
           )
