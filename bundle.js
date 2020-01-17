@@ -28913,7 +28913,7 @@ var App = function (_Component) {
             'div',
             null,
             _react2.default.createElement(
-              'h3',
+              'h1',
               null,
               'The Don Holt Bridge is ',
               this.state.isOpen ? 'Open' : 'Closed'
