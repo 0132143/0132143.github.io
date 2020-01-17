@@ -28844,7 +28844,7 @@ var App = function (_Component) {
         'autostart': true,
         'mute': true,
         'width': 350,
-        'height': 330,
+        'height': 272,
         'controls': false
       });
       this.setState({ activeVideo: idx });
