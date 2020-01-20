@@ -147,6 +147,9 @@ a {
           justify-content: space-between;
   min-height: 272px; }
 
+.video-links__title {
+  text-decoration: underline; }
+
 .video-links,
 .video-links__title {
   margin-left: 20px;

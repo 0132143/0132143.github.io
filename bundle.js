@@ -28807,7 +28807,7 @@ var App = function (_Component) {
       window.jwplayer('vidya').setup({
         'playlist': [{
           'sources': [{
-            'file': 'https://s19.us-east-1.skyvdn.com/rtplive/60028/playlist.m3u8'
+            'file': 'https://s20.us-east-1.skyvdn.com/rtplive/60028/playlist.m3u8'
           }]
         }],
         'autostart': true,
