@@ -28792,7 +28792,7 @@ var App = function (_Component) {
     _this.state = {
       status: '',
       isOpen: true,
-      activeVideo: 1
+      activeVideo: 2
     };
     window.jwplayer.key = '7AIKxuLP';
     _this.handleUpdate = _this.handleUpdate.bind(_this);
@@ -28807,7 +28807,7 @@ var App = function (_Component) {
       window.jwplayer('vidya').setup({
         'playlist': [{
           'sources': [{
-            'file': 'https://s19.us-east-1.skyvdn.com/rtplive/60027/playlist.m3u8'
+            'file': 'https://s19.us-east-1.skyvdn.com/rtplive/60028/playlist.m3u8'
           }]
         }],
         'autostart': true,
@@ -28940,10 +28940,10 @@ var App = function (_Component) {
           ),
           _react2.default.createElement(
             'div',
-            null,
+            { className: 'video-links__container' },
             _react2.default.createElement(
               'div',
-              { className: 'underline' },
+              { className: 'video-links__title' },
               'Traffic Cameras'
             ),
             _react2.default.createElement(

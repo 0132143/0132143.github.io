@@ -68,8 +68,7 @@ a {
   padding: 5px;
   background: -o-repeating-linear-gradient(45deg, #ffd43b, #ffd43b 0.6em, black 0.6em, black 1.3em);
   background: repeating-linear-gradient(45deg, #ffd43b, #ffd43b 0.6em, black 0.6em, black 1.3em);
-  margin: 20px;
-  margin-top: 40px;
+  margin: 20px 20px 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -135,26 +134,39 @@ a {
   bottom: 10px;
   text-align: center; }
 
+.video-links__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  min-height: 272px; }
+
 .video-links,
-.underline {
+.video-links__title {
   margin-left: 20px;
   margin-right: 20px;
   font-size: 20px; }
   .video-links > h3,
-  .underline > h3 {
+  .video-links__title > h3 {
     margin-top: 0; }
   .video-links > div,
-  .underline > div {
+  .video-links__title > div {
     margin-top: 10px;
     cursor: pointer; }
     .video-links > div:hover,
-    .underline > div:hover {
+    .video-links__title > div:hover {
       color: blue; }
     .video-links > div.active,
-    .underline > div.active {
+    .video-links__title > div.active {
       color: blue; }
       .video-links > div.active i,
-      .underline > div.active i {
+      .video-links__title > div.active i {
         border-radius: 50%;
         width: 5px;
         height: 5px;
