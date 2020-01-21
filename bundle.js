@@ -28779,6 +28779,10 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+var timeoutId = void 0;
+
+var urls = ['https://s18.us-east-1.skyvdn.com/rtplive/60026/playlist.m3u8', 'https://s19.us-east-1.skyvdn.com/rtplive/60027/playlist.m3u8', 'https://s20.us-east-1.skyvdn.com/rtplive/60028/playlist.m3u8', 'https://s18.us-east-1.skyvdn.com/rtplive/60029/playlist.m3u8'];
+
 console.log("👋");
 
 var App = function (_Component) {
@@ -28792,31 +28796,23 @@ var App = function (_Component) {
     _this.state = {
       status: '',
       isOpen: true,
-      activeVideo: 2
+      activeVideo: 2,
+      videoLoading: true,
+      videoError: false
     };
     window.jwplayer.key = '7AIKxuLP';
     _this.handleUpdate = _this.handleUpdate.bind(_this);
     _this.time = _this.time.bind(_this);
     _this.toggleVideo = _this.toggleVideo.bind(_this);
+    _this.handleVideoError = _this.handleVideoError.bind(_this);
+    _this.handleVideoBuffer = _this.handleVideoBuffer.bind(_this);
+    _this.handleVideoLoaded = _this.handleVideoLoaded.bind(_this);
     return _this;
   }
 
   _createClass(App, [{
     key: 'componentDidMount',
     value: function componentDidMount() {
-      window.jwplayer('vidya').setup({
-        'playlist': [{
-          'sources': [{
-            'file': 'https://s20.us-east-1.skyvdn.com/rtplive/60028/playlist.m3u8'
-          }]
-        }],
-        'autostart': true,
-        'mute': true,
-        'width': 350,
-        'height': 272,
-        'controls': false
-      });
-
       var firebaseConfig = {
         authDomain: "bridge-1575994869243.firebaseapp.com",
         databaseURL: "https://bridge-1575994869243.firebaseio.com",
@@ -28829,12 +28825,14 @@ var App = function (_Component) {
       firebase.initializeApp(firebaseConfig);
       var statusRef = firebase.database().ref('status').limitToLast(1); // eslint-disable-line
       statusRef.on('value', this.handleUpdate);
+
+      this.toggleVideo(this.state.activeVideo);
     }
   }, {
     key: 'toggleVideo',
     value: function toggleVideo(idx) {
-      var urls = ['https://s18.us-east-1.skyvdn.com/rtplive/60026/playlist.m3u8', 'https://s19.us-east-1.skyvdn.com/rtplive/60027/playlist.m3u8', 'https://s20.us-east-1.skyvdn.com/rtplive/60028/playlist.m3u8', 'https://s18.us-east-1.skyvdn.com/rtplive/60029/playlist.m3u8'];
-
+      this.setState({ videoError: false });
+      window.jwplayer('vidya').remove();
       window.jwplayer('vidya').setup({
         'playlist': [{
           'sources': [{
@@ -28847,7 +28845,30 @@ var App = function (_Component) {
         'height': 272,
         'controls': false
       });
+
+      window.jwplayer('vidya').on("error", this.handleVideoError);
+      window.jwplayer('vidya').on("buffer", this.handleVideoBuffer);
+      window.jwplayer('vidya').on("firstFrame", this.handleVideoLoaded);
       this.setState({ activeVideo: idx });
+    }
+  }, {
+    key: 'handleVideoError',
+    value: function handleVideoError() {
+      window.clearTimeout(timeoutId);
+      this.setState({ videoLoading: false, videoError: true });
+    }
+  }, {
+    key: 'handleVideoBuffer',
+    value: function handleVideoBuffer() {
+      this.setState({ videoLoading: true });
+      timeoutId = window.setTimeout(this.handleVideoError, 10000);
+    }
+  }, {
+    key: 'handleVideoLoaded',
+    value: function handleVideoLoaded(e) {
+      console.log(e);
+      window.clearTimeout(timeoutId);
+      this.setState({ videoLoading: false });
     }
   }, {
     key: 'time',
@@ -28936,6 +28957,18 @@ var App = function (_Component) {
           _react2.default.createElement(
             'div',
             { className: 'video-wrapper' },
+            this.state.videoError && _react2.default.createElement(
+              'div',
+              { className: 'error' },
+              'This feed is down... Try another one '
+            ),
+            this.state.videoLoading && _react2.default.createElement(
+              'div',
+              { className: 'loading' },
+              _react2.default.createElement('div', { className: 'dot' }),
+              _react2.default.createElement('div', { className: 'dot' }),
+              _react2.default.createElement('div', { className: 'dot' })
+            ),
             _react2.default.createElement('div', { id: 'vidya' })
           ),
           _react2.default.createElement(

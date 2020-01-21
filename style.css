@@ -5,12 +5,85 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  font-family: 'Muli', sans-serif; }
+  font-family: 'Muli', sans-serif;
+  margin: 0; }
 
 a {
   color: black; }
   a:visited {
     color: black; }
+
+.error {
+  position: absolute;
+  top: 2px;
+  bottom: 0;
+  color: white;
+  background-color: black;
+  z-index: 1000;
+  left: 2px;
+  right: 2px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center; }
+
+.loading {
+  position: absolute;
+  top: 2px;
+  bottom: 0;
+  background-color: black;
+  z-index: 1000;
+  left: 2px;
+  right: 2px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center; }
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border: 2px solid white;
+  border-radius: 50%;
+  float: left;
+  margin: 0 5px;
+  -webkit-transform: scale(0);
+      -ms-transform: scale(0);
+          transform: scale(0);
+  -webkit-animation: fx 1000ms ease infinite 0ms;
+          animation: fx 1000ms ease infinite 0ms; }
+  .dot:nth-child(2) {
+    -webkit-animation: fx 1000ms ease infinite 300ms;
+            animation: fx 1000ms ease infinite 300ms; }
+  .dot:nth-child(3) {
+    -webkit-animation: fx 1000ms ease infinite 600ms;
+            animation: fx 1000ms ease infinite 600ms; }
+
+@-webkit-keyframes fx {
+  50% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+
+@keyframes fx {
+  50% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
 
 .page-wrapper {
   display: -webkit-box;
@@ -23,7 +96,8 @@ a {
   padding: 20px 10px;
   min-height: 100vh;
   position: relative;
-  max-width: 800px; }
+  max-width: 800px;
+  margin: 0; }
 
 .video-wrapper {
   border-bottom: 2px solid black;
