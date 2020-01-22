@@ -28860,13 +28860,13 @@ var App = function (_Component) {
   }, {
     key: 'handleVideoBuffer',
     value: function handleVideoBuffer() {
+      window.clearTimeout(timeoutId);
       this.setState({ videoLoading: true });
       timeoutId = window.setTimeout(this.handleVideoError, 10000);
     }
   }, {
     key: 'handleVideoLoaded',
-    value: function handleVideoLoaded(e) {
-      console.log(e);
+    value: function handleVideoLoaded() {
       window.clearTimeout(timeoutId);
       this.setState({ videoLoading: false });
     }
