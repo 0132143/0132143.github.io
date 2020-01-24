@@ -28797,7 +28797,6 @@ var App = function (_Component) {
       status: '',
       isOpen: true,
       activeVideo: 2,
-      videoLoading: true,
       videoError: false
     };
     window.jwplayer.key = '7AIKxuLP';
@@ -28868,7 +28867,6 @@ var App = function (_Component) {
   }, {
     key: 'handleVideoLoaded',
     value: function handleVideoLoaded() {
-      console.log('loaded...');
       window.clearTimeout(timeoutId);
       this.setState({ videoLoading: false });
     }
@@ -28963,6 +28961,17 @@ var App = function (_Component) {
               'div',
               { className: 'error' },
               'This feed is down... Try another one '
+            ),
+            this.state.videoLoading && _react2.default.createElement(
+              'div',
+              { className: 'loading-container' },
+              _react2.default.createElement('div', { className: 'loading-bg' }),
+              _react2.default.createElement('img', { alt: '', className: 'bridge', src: '/images/bridgeloader.png' }),
+              _react2.default.createElement(
+                'div',
+                { className: 'loading-text' },
+                'Loading...'
+              )
             ),
             _react2.default.createElement('div', { id: 'vidya' })
           ),
