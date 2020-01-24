@@ -32,7 +32,7 @@ a {
       -ms-flex-align: center;
           align-items: center; }
 
-.loading {
+.loading-container {
   position: absolute;
   top: 2px;
   bottom: 0;
@@ -48,7 +48,50 @@ a {
           justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
-          align-items: center; }
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column; }
+
+.loading-text {
+  width: 100px;
+  z-index: 1000;
+  text-align: center;
+  background-color: black;
+  color: white;
+  mix-blend-mode: multiply; }
+
+.loading-bg {
+  height: 65px;
+  background: white;
+  max-width: 95px;
+  position: absolute;
+  top: 105px;
+  left: 125px;
+  -webkit-animation: Animation 2s ease-in-out infinite;
+  animation: Animation 2s ease-in-out infinite; }
+
+.bridge {
+  width: 100px;
+  z-index: 1000;
+  height: auto; }
+
+@-webkit-keyframes Animation {
+  0% {
+    width: 0%; }
+  50% {
+    width: 100%; }
+  100% {
+    width: 0%; } }
+
+@keyframes Animation {
+  0% {
+    width: 0%; }
+  50% {
+    width: 100%; }
+  100% {
+    width: 0%; } }
 
 .dot {
   width: 10px;

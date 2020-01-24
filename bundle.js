@@ -28860,13 +28860,15 @@ var App = function (_Component) {
   }, {
     key: 'handleVideoBuffer',
     value: function handleVideoBuffer() {
-      window.clearTimeout(timeoutId);
+      console.log('buffering...');
+      if (timeoutId) window.clearTimeout(timeoutId);
       this.setState({ videoLoading: true });
       timeoutId = window.setTimeout(this.handleVideoError, 10000);
     }
   }, {
     key: 'handleVideoLoaded',
     value: function handleVideoLoaded() {
+      console.log('loaded...');
       window.clearTimeout(timeoutId);
       this.setState({ videoLoading: false });
     }
@@ -28961,13 +28963,6 @@ var App = function (_Component) {
               'div',
               { className: 'error' },
               'This feed is down... Try another one '
-            ),
-            this.state.videoLoading && _react2.default.createElement(
-              'div',
-              { className: 'loading' },
-              _react2.default.createElement('div', { className: 'dot' }),
-              _react2.default.createElement('div', { className: 'dot' }),
-              _react2.default.createElement('div', { className: 'dot' })
             ),
             _react2.default.createElement('div', { id: 'vidya' })
           ),
