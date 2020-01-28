@@ -28799,7 +28799,7 @@ var App = function (_Component) {
       activeVideo: 2,
       videoError: false
     };
-    window.jwplayer.key = '7AIKxuLP';
+    // window.jwplayer.key = '7AIKxuLP';
     _this.handleUpdate = _this.handleUpdate.bind(_this);
     _this.time = _this.time.bind(_this);
     _this.toggleVideo = _this.toggleVideo.bind(_this);
@@ -28830,21 +28830,16 @@ var App = function (_Component) {
   }, {
     key: 'toggleVideo',
     value: function toggleVideo(idx) {
-      this.setState({ videoError: false });
+      this.setState({ videoError: false, videoLoading: false });
       window.jwplayer('vidya').remove();
+      this.setState({ videoLoading: true });
       window.jwplayer('vidya').setup({
-        'playlist': [{
-          'sources': [{
-            'file': urls[idx]
-          }]
-        }],
-        'autostart': true,
-        'mute': true,
-        'width': 350,
-        'height': 272,
-        'controls': false
+        file: urls[idx],
+        mute: true,
+        width: 350,
+        height: 272,
+        controls: false
       });
-
       window.jwplayer('vidya').on("error", this.handleVideoError);
       window.jwplayer('vidya').on("buffer", this.handleVideoBuffer);
       window.jwplayer('vidya').on("firstFrame", this.handleVideoLoaded);
@@ -28859,16 +28854,18 @@ var App = function (_Component) {
   }, {
     key: 'handleVideoBuffer',
     value: function handleVideoBuffer() {
-      console.log('buffering...');
       if (timeoutId) window.clearTimeout(timeoutId);
-      this.setState({ videoLoading: true });
       timeoutId = window.setTimeout(this.handleVideoError, 10000);
     }
   }, {
     key: 'handleVideoLoaded',
     value: function handleVideoLoaded() {
+      var _this2 = this;
+
       window.clearTimeout(timeoutId);
-      this.setState({ videoLoading: false });
+      window.setTimeout(function () {
+        return _this2.setState({ videoLoading: false });
+      }, 900);
     }
   }, {
     key: 'time',
@@ -28908,7 +28905,7 @@ var App = function (_Component) {
   }, {
     key: 'render',
     value: function render() {
-      var _this2 = this;
+      var _this3 = this;
 
       return _react2.default.createElement(
         'div',
@@ -28966,7 +28963,7 @@ var App = function (_Component) {
               'div',
               { className: 'loading-container' },
               _react2.default.createElement('div', { className: 'loading-bg' }),
-              _react2.default.createElement('img', { alt: '', className: 'bridge', src: '/images/bridgeloader.png' }),
+              _react2.default.createElement('div', { className: 'bridge' }),
               _react2.default.createElement(
                 'div',
                 { className: 'loading-text' },
@@ -28989,7 +28986,7 @@ var App = function (_Component) {
               _react2.default.createElement(
                 'div',
                 { role: 'button', onClick: function onClick() {
-                    _this2.toggleVideo(0);
+                    _this3.toggleVideo(0);
                   }, className: this.state.activeVideo === 0 ? 'active' : '' },
                 _react2.default.createElement('i', null),
                 'East Bound Heading Up'
@@ -28997,7 +28994,7 @@ var App = function (_Component) {
               _react2.default.createElement(
                 'div',
                 { role: 'button', onClick: function onClick() {
-                    _this2.toggleVideo(1);
+                    _this3.toggleVideo(1);
                   }, className: this.state.activeVideo === 1 ? 'active' : '' },
                 _react2.default.createElement('i', null),
                 'Top of the Bridge'
@@ -29005,7 +29002,7 @@ var App = function (_Component) {
               _react2.default.createElement(
                 'div',
                 { role: 'button', onClick: function onClick() {
-                    _this2.toggleVideo(2);
+                    _this3.toggleVideo(2);
                   }, className: this.state.activeVideo === 2 ? 'active' : '' },
                 _react2.default.createElement('i', null),
                 'West Bound Heading Up'
@@ -29013,7 +29010,7 @@ var App = function (_Component) {
               _react2.default.createElement(
                 'div',
                 { role: 'button', onClick: function onClick() {
-                    _this2.toggleVideo(3);
+                    _this3.toggleVideo(3);
                   }, className: this.state.activeVideo === 3 ? 'active' : '' },
                 _react2.default.createElement('i', null),
                 'View towards Clements Ferry'

@@ -74,8 +74,11 @@ a {
 
 .bridge {
   width: 100px;
+  height: 50px;
   z-index: 1000;
-  height: auto; }
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url("/images/bridgeloader.png"); }
 
 @-webkit-keyframes Animation {
   0% {
