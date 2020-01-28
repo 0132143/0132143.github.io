@@ -28974,7 +28974,7 @@ var App = function (_Component) {
           ),
           _react2.default.createElement(
             'div',
-            { className: 'video-links__container' },
+            { className: 'video-links__container', style: { justifyContent: this.state.status ? 'space-between' : 'flex-start' } },
             _react2.default.createElement(
               'div',
               { className: 'video-links__title' },
@@ -29016,7 +29016,7 @@ var App = function (_Component) {
                 'View towards Clements Ferry'
               )
             ),
-            _react2.default.createElement(
+            this.state.status && _react2.default.createElement(
               'div',
               { className: 'status-border' },
               _react2.default.createElement(
