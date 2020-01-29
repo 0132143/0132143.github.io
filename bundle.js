@@ -28935,16 +28935,6 @@ var App = function (_Component) {
               null,
               'The Don Holt Bridge is ',
               this.state.isOpen ? 'Open' : 'Closed'
-            ),
-            this.state.updatedAt ? _react2.default.createElement(
-              'div',
-              { className: 'timestamp' },
-              'Updated: ',
-              this.state.updatedAt
-            ) : _react2.default.createElement(
-              'div',
-              { className: 'timestamp' },
-              'Checking...'
             )
           )
         ),
@@ -29029,6 +29019,16 @@ var App = function (_Component) {
                   this.state.status
                 )
               )
+            ),
+            this.state.updatedAt ? _react2.default.createElement(
+              'div',
+              { className: 'timestamp' },
+              'Updated: ',
+              this.state.updatedAt
+            ) : _react2.default.createElement(
+              'div',
+              { className: 'timestamp' },
+              'Checking...'
             )
           )
         ),
