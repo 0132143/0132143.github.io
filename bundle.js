@@ -28796,7 +28796,7 @@ var App = function (_Component) {
     _this.state = {
       status: '',
       isOpen: true,
-      activeVideo: 2,
+      activeVideo: 0,
       videoError: false
     };
     // window.jwplayer.key = '7AIKxuLP';
